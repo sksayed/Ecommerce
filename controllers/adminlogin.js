@@ -7,6 +7,7 @@ loginValidation=require.main.require('./Validation_rule/login_validation');
 // Request Handler
 
 router.get('/',function(req,res){
+	console.log("admin login e asche ");
 	res.render('./adminlogin/adminlogin');
 });
 router.post('/',function(req,res){
@@ -28,7 +29,7 @@ router.post('/',function(req,res){
 				if(valid)
 				{
 					req.session.loggedUser=data;
-					res.redirect('./admindashboard/addProduct');
+					res.redirect('./admindashboard/addadmin');
 				}
 				else
 				{

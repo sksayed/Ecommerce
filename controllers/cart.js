@@ -15,7 +15,7 @@ router.all('/addtocart/:id?',function(req,res){
 		id: req.params.id
 	};
 
-
+         /// add to cart funtion ta product id diye product er sob value niye ase 
 		 cart.addtocart(data,function(result){
 		 	if(result && result!=null)
 		 		{

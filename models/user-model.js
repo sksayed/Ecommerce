@@ -61,5 +61,23 @@ module.exports={
 				callback(true);
 			}
 		});
-	}
+	},
+	userDelet : function ( data , callback)
+	{
+		var sql = "DELETE FROM `user` WHERE `user`.`id` = ?";
+		var param = [data.id];
+		db.deleteData(sql,param, function(result)
+		{
+			if ( result == null || result.length == 0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+
+		})
+
+	} 
 };

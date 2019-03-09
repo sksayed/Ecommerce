@@ -2,7 +2,7 @@ var express=require('express');
 var router=express.Router();
 var index=require.main.require('./models/index');
 var dashboardModel=require.main.require('./models/admindashboard-model');
-var index = require.main.require('./models/index')
+//var index = require.main.require('./models/index')
 // Request Handler
 
 router.all('/',function(req,res){

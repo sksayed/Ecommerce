@@ -10,7 +10,7 @@
 
         <A href="/logout" >Logout</A>
        <br>
-<p class=" text-info">May 05,2014,03:00 pm </p>
+<p class=" text-info"> </p>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
@@ -18,10 +18,10 @@
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title"><%=result[i].name%></h3>
-            </div>
-            <div class="panel-body">
+            </div> <!--"http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"-->
+            <div class="panel-body"> <!---https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnenRGETpi7vFqJ2nSzqnyoKwxJQAoyCCVuUYkViLe8K8IFCa-->
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnenRGETpi7vFqJ2nSzqnyoKwxJQAoyCCVuUYkViLe8K8IFCa" class="img-circle img-responsive"> </div>
                 
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
@@ -42,10 +42,12 @@
                         <td>User Name:</td>
                         <td><%=result[i].username%></td>
                       </tr>
+                      <!--
                       <tr>
                         <td>Email:</td>
                         <td><%=result[i].email%></td>
                       </tr>
+                    -->
                       <tr>
                         <td>Date of Birth</td>
                         <td><%=result[i].id%></td>
@@ -74,15 +76,15 @@
                   </table>
                   
                   <a href="/user/useredit/<%=result[i].username%>" class="btn btn-primary">Edit Profile</a>
-                  <a href="/user/broughthistory/<%=result[i].id%>" class="btn btn-primary">Buy History</a>
+                 <!-- <a href="/user/broughthistory/<%=result[i].id%>" class="btn btn-primary">Buy History</a> -->
                 </div>
               </div>
             </div>
                  <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                       <!-- <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a> -->
                         <span class="pull-right">
-                            <a href="/useredit/<%=result[i].id%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-remove"></i></a>
+                          <!--  <a href="/useredit/<%=result[i].id%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-remove"></i></a> -->
                         </span>
                     </div>
             

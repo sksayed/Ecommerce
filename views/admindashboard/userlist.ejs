@@ -23,7 +23,7 @@ tr:nth-child(even) {
 </head>
 <body>
 <header>
-    <% include ../partials/adminHeader %>
+    <% include ../partials/adminHeader2 %>
 </header>
 <div class="panel panel-primary">
     <a href="/logout">
@@ -46,7 +46,7 @@ tr:nth-child(even) {
     <td><%=result[i].id%></td>
     <td><%=result[i].name%></td>
     <td><%=result[i].email%></td>
-    <td><a href="#">Block</a></td>
+    <td><a href="/admindashboard/userdelete/<%=result[i].id%>">Block</a></td>
   </tr>
   <%}%>
   

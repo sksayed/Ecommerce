@@ -1,4 +1,5 @@
 var db=require('./db');
+
 var passwordHash=require('password-hash');
 
 module.exports={
@@ -125,6 +126,24 @@ module.exports={
 			}
 		});
 	},
+	userDelete : function ( data , callback)
+	{
+		var sql = "DELETE FROM user WHERE id = ?";
+		var param = [data.id];
+		db.deleteData(sql,param, function(result)
+		{
+			if ( result == null || result.length == 0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+
+		})
+
+	} ,
 	soldpendings: function(callback)
 	{
 		var sql='SELECT * FROM soldproduct ORDER BY Orderdate DESC,delivery';

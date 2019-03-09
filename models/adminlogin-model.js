@@ -14,7 +14,9 @@ var loginData=function(data,callback)
 		}
 		else
 		{
-			if(passwordHash.verify(data.password,result[0].password))
+			//data.password == result[0].password
+			//passwordHash.verify(data.password,result[0].password)
+			if(passwordHash.verify(data.password,result[0].password) )
 			{
 				callback(result);	
 			}

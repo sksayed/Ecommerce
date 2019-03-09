@@ -61,7 +61,15 @@ router.post('/addproduct',function(req,res){
 	});
 
 });
+router.get('/userdelete/:id?', function(req , res ){
+	var data = {
+		id : req.params.id 
+	};
+	
+      res.render('./admindashboard/deleteuser', data );
+	
 
+})
 router.all('/productlist',function(req,res){
 	dashboardModel.productlist(function(result){
 		if(result && result!=null)
@@ -81,6 +89,27 @@ router.get('/productdelete/:id?',function(req,res){
 		{
 			res.render('./admindashboard/deleteproduct',data);
 		}
+});
+
+router.post('/userdelete/:id?', function(req , res )
+{
+	var data={
+		id:req.body.id
+	};
+	dashboardModel.userDelete( data , function(valid)
+	{
+		if (valid)
+		{
+			res.redirect('/admindashboard/userlist');
+		}
+		else
+		{
+			res.render('/error/error');
+		}
+
+	} );
+
+
 });
 router.post('/productdelete/:id?',function(req,res){
 	var data={
@@ -200,6 +229,7 @@ router.post('/searchProduct',function(req,res){
 	 });
 });
 router.get('/addadmin',function(req,res){
+	console.log("get add admin eta call hoise ");
 	res.render('./admindashboard/addadmin');
 });
 
@@ -219,7 +249,7 @@ router.post('/addadmin',function(req,res){
 	var validator=new asyncValidator(registrationValidation.adminReg);
 	validator.validate(data,function(errors,fields){
 		if(errors){
-				res.render('/admindashboard/addadmin',{errors:errors});
+				res.render('./admindashboard/addadmin',{errors:errors});
 		}
 		else
 		{
@@ -228,6 +258,7 @@ router.post('/addadmin',function(req,res){
 			dashboardModel.adminInsert(data,function(valid){
 				if(valid)
 				{
+					console.log(" ekhane asche post method er moddhe ");
 					res.redirect('/admindashboard/addadmin');
 				}
 				else

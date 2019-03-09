@@ -52,7 +52,7 @@ app.all('*/*',function(req,res,next){
 app.use('/index',index);
 app.use('/cart',cart);
 app.use('/login',login);
-app.use('/user',user);
+//app.use('/user',user);
 app.use('/reg',reg);
 app.use('/adminlogin',adminlogin);
 app.use('/admindashboard',admindashboard);
