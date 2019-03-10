@@ -9,7 +9,7 @@ router.all('/',function(req,res){
 	 dashboardModel.productlist(function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result});
+	 			res.render('./index/index',{result: result });
 	 		}
 	 	else
 	 		{

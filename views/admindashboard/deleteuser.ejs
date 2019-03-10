@@ -2,13 +2,43 @@
 <html>
 <head>
 	<title>Delete</title>
+	<% include ../partials/head %>
 </head>
 <body>
-	<h2>Delete User</h2>
-	<p>Your user Id is <%= id %></p>
-	<form method="post">
-		<input type="Hidden" name="id" value="<%=id%>">
-		<button type="submit">Delete</button>
-	</form>
+
+	<div>
+			<table width="400" height="400" align="center" border="0">
+				<tr>
+					<td>
+							<div   class="alert alert-danger">
+									<strong>Warning!</strong> Are you sure you want to delete this user?
+								  </div>
+					</td>
+				</tr>
+					<tr>
+						<td><div class="well"><h1 class="text-center">Your user Id is <%= id %></h1></div></td>
+					</tr>
+					<tr>
+							<td align="center">
+									
+									<form method="post">
+											<input type="Hidden" name="id" value="<%=id%>">
+											<button class="button" type="submit">Delete</button>
+											 
+									</form>
+							</td>
+							
+					</tr>
+				</table>
+
+	</div>
+	<div>
+
+	</div>
+	
+			  
+	<!--<h2>Delete User</h2>-->
+
+	
 </body>
 </html>

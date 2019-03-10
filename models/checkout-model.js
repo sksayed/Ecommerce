@@ -17,8 +17,9 @@ module.exports={
 	},
 	updatequantity:  function(data,callback) {
 		var sql='UPDATE product SET quantity = (quantity - ?) WHERE id=?';
-		var param=[data.quantityorder,data.productid];
-		console.log(data.quantityorder);
+		//var sql='UPDATE product SET quantity = ? WHERE id=?';
+		var param=[data.quantity,data.productid];
+		console.log(data.quantity);
 			db.updateData(sql,param,function(result){
 			if(result==0 || result==null)
 			{

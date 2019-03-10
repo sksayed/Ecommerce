@@ -2,7 +2,9 @@ var express=require('express');
 var asyncValidator=require('async-validator');
 var router=express.Router();
 checkoutModel=require.main.require('./models/checkout-model');
-user=require.main.require('./models/user-model');
+ const user=require.main.require('./models/user-model');
+ const cartModel = require.main.require('./models/cart-model');
+ var cart=require.main.require('./models/cart-model');
 
 
 // Request Handler
@@ -54,13 +56,14 @@ router.post('/placeorder',function(req,res){
 		res.redirect('/index');
 	}
 
-	else
+	else //jodi cart e jinis thake 
 	{
 
 
-		if(req.session.loggedUser!=null)
+		if(req.session.loggedUser!=null) //jodi valid user hoi
 		{
-
+			console.log( "ekhane asche ");
+			
 				var info={
 					username: req.session.loggedUser
 
@@ -74,12 +77,12 @@ router.post('/placeorder',function(req,res){
 							productid: productcart.sessioncart[i].id,
 							productname: productcart.sessioncart[i].productname,
 							userid: userid[0].id,
-							username: req.body.first_name,
-							quantity: req.body.quantity[i],
-							price: productcart.sessioncart[i].price*req.body.quantity[i],
-							phonenumber: req.body.phone_number,
-							address: req.body.address,
-							zipcode: req.body.zip_code
+							username: userid[0].username,
+							quantity: productcart.sessioncart[i].quantity,
+							price: productcart.sessioncart[i].price*productcart.sessioncart[i].quantity,
+							phonenumber: userid[0].phone,
+							address: userid[0].address,
+							zipcode: '1122'
 						};
 						console.log(data);
 						checkoutModel.placeorder(data,function(valid){
@@ -118,6 +121,90 @@ router.post('/placeorder',function(req,res){
 	
 });
 
+router.post('/payment' , function( req , res )
+{
+	console.log(" payment method er moddhe asche ");
+	if(req.session.cart.length==0)
+	{
+		res.redirect('/index');
+	}
+	else
+	{
+		
+		if(req.session.loggedUser!=null)
+		{
+			var sessioncart=req.session.cart;
+			//console.log( sessioncart);
+			var productcart={sessioncart};
+			
+			
+			for(var i=0;i<req.session.cart.length;i++)
+			{
+				var data = {
+					quantity: productcart.sessioncart[i].quantity,
+					productid: productcart.sessioncart[i].id
+					
+
+				};
+                
+				console.log(data);
+				checkoutModel.updatequantity(data,function(valid1){
+					console.log(" update korte gese ");
+				 if(valid1){
+					
+				 }
+				 else
+				 {
+					 res.redirect('/index');
+				 }
+			 });	
+
+				/*cart.addtocart(data.productid,function(result){
+					
+					if(result && result!=null)
+					{
+					   var quan = result[0].quantity - data.quantity ;
+					   data.quantity = quan ;
+					   console.log(data.quantity);
+					   checkoutModel.updatequantity(data,function(valid1){
+						   console.log(" update korte gese ");
+						if(valid1){
+							req.session.cart=[];
+							res.render('./checkout/thanks');
+						}
+						else
+						{
+							res.redirect('/index');
+						}
+					});	
+
+					}
+					else 
+					{
+						res.render('./error/error');
+
+					}
+
+				
+				
+				
+				});*/
+
+				
+
+			}
+			req.session.cart=[];
+			res.render('./checkout/thanks');
+
+		}
+		else
+		{
+			res.redirect('/login');
+		}
+
+	}
+
+})
 
 
 //Exports

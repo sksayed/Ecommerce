@@ -43,7 +43,8 @@
 	                        	<%for(var i=0;i<result.cart.length;i++){%>
 	                        		<div class="form-group">
 	                        		    <div class="col-sm-3 col-xs-3">
-	                        		        <img class="img-responsive" src="https://i.imgur.com/ruU04I6.jpg" />
+											<img src="data:image/png;base64,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" height="50" weidth ="50" alt='Hello Moni'>
+	                        		        <img class="img-responsive" src="" />
 	                        		    </div>
 	                        		    <div class="col-sm-5 col-xs-5">
 	                        		        <input type="hidden" name="productid" value="<%=result.cart[i].id%>">
@@ -141,7 +142,8 @@
 	                        </div>
 	                    </div>
 	                    <!--SHIPPING METHOD END-->
-	                    <!--CREDIT CART PAYMENT-->
+						<!--CREDIT CART PAYMENT-->
+						<!--
 	                    <div class="panel panel-info">
 	                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
 	                        <div class="panel-body">
@@ -221,11 +223,16 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>
-	                    <!--CREDIT CART PAYMENT END-->
+						</div>
+					-->
+						<!--CREDIT CART PAYMENT END-->
+					
 	                </div>
-	                
-	                </form>
+					
+					</form>
+					<form method="post" action="/checkout/payment">
+						<button type="submit" class="pull-right btn btn-block btn-danger font" > Payment   </button>
+					</form>
 	            </div>
 	            <div class="row cart-footer">
 	        

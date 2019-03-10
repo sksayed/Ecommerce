@@ -4,8 +4,6 @@ var cart=require.main.require('./models/cart-model');
 
 // Request Handler
 
-
-
 router.get('/',function(req,res){
 	res.render('./cart/cart',{result: req.session.cart});
 });
